@@ -3,7 +3,6 @@ version: 1
 builds:
   - env:
       - CGO_ENABLED=0
-      - GOOGLE_APPLICATION_CREDENTIALS=C:\Users\ScottChaney\AppData\Roaming\gcloud\application_default_credentials.json
     goos:
       - linux
     goarch:
@@ -16,6 +15,8 @@ publishers:
   - name: google-cloud-artifact-registry
     dir: "{{ dir .ArtifactPath}}"
     cmd: gcloud artifacts apt upload bonfire-apt --source={{ .ArtifactName}}
+    env:
+      - GOOGLE_APPLICATION_CREDENTIALS=C:\Users\ScottChaney\AppData\Roaming\gcloud\application_default_credentials.json
 
 nfpms:
   - package_name: apt-test
