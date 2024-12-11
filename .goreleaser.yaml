@@ -8,6 +8,9 @@ builds:
     goarch:
       - amd64
 
+release:
+  disable: true
+
 publishers:
   - name: google-cloud-artifact-registry
     dir: "{{ dir .ArtifactPath}}"
