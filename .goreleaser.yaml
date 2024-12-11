@@ -14,7 +14,7 @@ release:
 publishers:
   - name: google-cloud-artifact-registry
     env:
-      - GOOGLE_APPLICATION_CREDENTIALS="C:\Users\ScottChaney\AppData\Roaming\gcloud\application_default_credentials.json"
+      - GOOGLE_APPLICATION_CREDENTIALS={{ quote (expandenv "$HOME/.config/gcloud/application_default_credentials.json") }}
     dir: "{{ dir .ArtifactPath}}"
     cmd: gcloud artifacts apt upload bonfire-apt --source={{ .ArtifactName}}
 
