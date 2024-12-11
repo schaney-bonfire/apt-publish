@@ -1,0 +1,23 @@
+version: 1
+
+builds:
+  - env:
+      - CGO_ENABLED=0
+    goos:
+      - linux
+    goarch:
+      - amd64
+
+publishers:
+  - name: google-cloud-artifact-registry
+    dir: "{{ dir .ArtifactPath}}"
+    cmd: gcloud artifacts apt upload bonfire-apt --source={{ .ArtifactName}}
+
+nfpms:
+  - package_name: apt-test
+    homepage: https://github.com/bonfirestudios/go-arcade/
+    maintainer: Scott Chaney <scott@bonfirestudios.com>
+    description: |-
+            Test for apt pipeline
+    formats:
+      - deb
