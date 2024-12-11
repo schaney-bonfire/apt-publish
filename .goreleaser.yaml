@@ -16,7 +16,7 @@ publishers:
     dir: "{{ dir .ArtifactPath}}"
     cmd: gcloud artifacts apt upload bonfire-apt --source={{ .ArtifactName}}
     env:
-      - GOOGLE_APPLICATION_CREDENTIALS=C:\Users\ScottChaney\AppData\Roaming\gcloud\application_default_credentials.json
+      - GOOGLE_APPLICATION_CREDENTIALS="C:\Users\ScottChaney\AppData\Roaming\gcloud\application_default_credentials.json"
 
 nfpms:
   - package_name: apt-test
