@@ -14,7 +14,7 @@ release:
 publishers:
   - name: google-cloud-artifact-registry
     dir: "{{ dir .ArtifactPath}}"
-    cmd: gcloud auth login --cred-file=%GOOGLE_APPLICATION_CREDENTIALS% && gcloud artifacts apt upload bonfire-apt --source={{ .ArtifactName}}
+    cmd: gcloud auth login --cred-file={{ .Env.GOOGLE_APPLICATION_CREDENTIALS }} && gcloud artifacts apt upload bonfire-apt --source={{ .ArtifactName}}
 
 nfpms:
   - package_name: apt-test
